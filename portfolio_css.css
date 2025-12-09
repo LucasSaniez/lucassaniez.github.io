@@ -583,6 +583,148 @@ li strong {
   margin-top: 18px;
 }
 
+/* ===== VEILLE TECHNOLOGIQUE ===== */
+.veille-section {
+  scroll-margin-top: 80px;
+}
+
+.veille-intro {
+  background: rgba(0, 255, 200, 0.08);
+  border-left: 5px solid #00ffc8;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+}
+
+.veille-intro p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.veille-content {
+  margin-top: 30px;
+}
+
+.veille-card-main {
+  background: rgba(30, 40, 55, 0.85);
+  border: 2px solid rgba(0, 255, 200, 0.4);
+  border-radius: 14px;
+  padding: 35px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.veille-card-main:hover {
+  border-color: rgba(0, 255, 200, 0.7);
+  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.3);
+  transform: translateY(-3px);
+}
+
+.veille-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ffc8 0%, #00d4aa 100%);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 15px rgba(0, 255, 200, 0.3);
+}
+
+.veille-card-main h4 {
+  color: #00ffc8;
+  font-size: 26px;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.veille-card-main h5 {
+  color: #00ffc8;
+  font-size: 20px;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.veille-summary {
+  background: rgba(0, 255, 200, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 255, 200, 0.2);
+}
+
+.veille-summary p {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.veille-summary p:last-child {
+  margin-bottom: 0;
+}
+
+.veille-description {
+  margin-top: 25px;
+}
+
+.veille-description p {
+  margin-bottom: 20px;
+  line-height: 1.9;
+}
+
+.veille-description ul {
+  margin: 20px 0;
+  padding-left: 0;
+}
+
+.veille-description ul li {
+  margin-bottom: 12px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.veille-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.source-tag {
+  display: inline-block;
+  background: rgba(0, 255, 200, 0.15);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 255, 200, 0.3);
+}
+
+.veille-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #00ffc8 0%, #00d4aa 100%);
+  color: #000;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 17px;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 255, 200, 0.4);
+}
+
+.veille-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.6);
+  background: linear-gradient(135deg, #00ffe0 0%, #00e0bc 100%);
+}
+
 /* ===== CERTIFICATIONS ===== */
 .certification-section {
   min-height: 600px;
