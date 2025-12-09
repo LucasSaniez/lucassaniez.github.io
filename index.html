@@ -267,11 +267,16 @@
             navMenu.classList.toggle('active');
         });
 
-        // Fermer le menu quand on clique sur un lien
+        // Fermer le menu et activer le lien quand on clique
         navLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', function (e) {
+                // Fermer le menu mobile
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
+
+                // Mettre à jour la classe active immédiatement
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
             });
         });
 
