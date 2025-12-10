@@ -96,7 +96,7 @@
                     <li><strong>2022-2025 :</strong> Baccalauréat Spécialité NSI - Mathématiques au lycée Watteau à Valenciennes</li>
                 </ul>
                 
-                <h4 style="margin-top: 30px; color: #64ffda;">💼 Expériences professionnelles</h4>
+                <h4 style="margin-top: 30px; color: #00ffc8;">💼 Expériences professionnelles</h4>
                 <ul>
                     <li><strong>Juillet 2025 :</strong> Stage - Endurance Shop, Marly (Vente d'articles de sport - Spécialité running)</li>
                     <li><strong>Juillet 2024 :</strong> Stage - BBND, Lille (Entreprise de Services du Numérique spécialisée en Cybersécurité)</li>
@@ -194,18 +194,6 @@
                 </div>
             </section>
 
-            <!-- Section BTS SIO -->
-            <section id="BTS-SIO" class="section-card">
-                <h3>📚 BTS SIO - Qu'est-ce que c'est ?</h3>
-                <p>Le BTS SIO (Services Informatiques aux Organisations) est une formation en informatique qui comprend deux options : SLAM et SISR. Ce BTS est destiné aux étudiants qui ont un intérêt pour l'informatique, que ce soit dans la programmation ou dans le réseau.</p>
-                
-                <div class="bts-option-solo">
-                    <h4>Option SISR 🎯</h4>
-                    <p><strong>Solutions d'Infrastructure, Systèmes et Réseaux</strong></p>
-                    <p>L'option SISR forme aux métiers de technicien supérieur systèmes et réseaux, administrateur systèmes et réseaux, support d'exploitation et support d'infrastructure. Cette option met l'accent sur la gestion, la maintenance et la sécurisation des infrastructures informatiques.</p>
-                </div>
-            </section>
-
             <!-- Section Projets -->
             <section id="Projets" class="section-card">
                 <h3>🚀 Mes Projets</h3>
@@ -255,37 +243,26 @@
         </div>
     </div>
 
-    <!-- Script -->
+    <!-- Script optimisé -->
     <script>
+        // Menu hamburger
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         const navLinks = document.querySelectorAll('.nav-link');
 
-        // Menu hamburger toggle
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
         });
 
-        // Fermer le menu et activer le lien quand on clique
-        navLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                // Fermer le menu mobile
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-
-                // Mettre à jour la classe active immédiatement
-                navLinks.forEach(l => l.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        // Smooth scroll
+        // Smooth scroll et fermeture menu
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href !== '#' && document.querySelector(href)) {
                     e.preventDefault();
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
                     document.querySelector(href).scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -294,68 +271,47 @@
             });
         });
 
-        // Détecter la section active au scroll (observer + fallback par proximity)
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50% 0px'
-        };
+        // Détection active de la section au scroll - OPTIMISÉ
+        const sections = document.querySelectorAll('section[id]');
+        const navHeight = 100;
 
-        const setActiveLink = (id) => {
-            navLinks.forEach(link => link.classList.remove('active'));
-            const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
-            if (activeLink) activeLink.classList.add('active');
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setActiveLink(entry.target.id);
-                }
-            });
-        }, observerOptions);
-
-        // Observer toutes les sections
-        const sections = Array.from(document.querySelectorAll('section[id]'));
-        sections.forEach(section => observer.observe(section));
-
-        // Fallback : sélectionner la section la plus proche du centre de l'écran
-        function activateNearestSection() {
-            const viewportCenter = window.innerHeight / 2;
-            let nearest = {id: null, distance: Infinity};
+        function updateActiveNav() {
+            const scrollPos = window.scrollY + navHeight + 50;
+            
             sections.forEach(section => {
-                const rect = section.getBoundingClientRect();
-                const dist = Math.abs(rect.top + rect.height/2 - viewportCenter);
-                if (dist < nearest.distance) {
-                    nearest = {id: section.id, distance: dist};
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+                    if (activeLink) activeLink.classList.add('active');
                 }
             });
-            if (nearest.id) setActiveLink(nearest.id);
         }
 
-        // Exécuter au chargement et au scroll pour robustesse
-        window.addEventListener('load', activateNearestSection);
+        // Throttle pour optimiser les performances
+        let scrollTimeout;
         window.addEventListener('scroll', () => {
-            // léger debounce
-            if (this._navScrollTimer) clearTimeout(this._navScrollTimer);
-            this._navScrollTimer = setTimeout(activateNearestSection, 80);
+            if (scrollTimeout) clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(updateActiveNav, 50);
         });
 
-        // Fonction pour afficher le pop-up téléphone
+        window.addEventListener('load', updateActiveNav);
+
+        // Pop-up téléphone
         function showPhonePopup(event) {
             event.preventDefault();
             document.getElementById('phonePopup').style.display = 'flex';
         }
 
-        // Fonction pour fermer le pop-up téléphone
         function closePhonePopup() {
             document.getElementById('phonePopup').style.display = 'none';
         }
 
-        // Fermer le pop-up en cliquant en dehors
         document.getElementById('phonePopup').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closePhonePopup();
-            }
+            if (e.target === this) closePhonePopup();
         });
     </script>
 </body>
