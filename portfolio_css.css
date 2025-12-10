@@ -489,6 +489,79 @@ li strong {
   font-size: 22px;
 }
 
+<<<<<<< HEAD
+=======
+/* ===== VEILLE TECHNOLOGIQUE ===== */
+.veille-section {
+  min-height: 700px;
+  scroll-margin-top: 100px;
+}
+
+.veille-intro {
+  background: rgba(0, 255, 200, 0.08);
+  border-left: 5px solid #00ffc8;
+  padding: 20px 25px;
+  border-radius: 10px;
+  margin-bottom: 35px;
+}
+
+.veille-card-main {
+  background: rgba(30, 40, 55, 0.85);
+  border: 2px solid rgba(0, 255, 200, 0.4);
+  border-radius: 14px;
+  padding: 35px;
+  transition: all 0.3s ease;
+}
+
+.veille-card-main:hover {
+  border-color: rgba(0, 255, 200, 0.7);
+  box-shadow: 0 8px 30px rgba(0, 255, 200, 0.3);
+  transform: translateY(-3px);
+}
+
+.veille-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #00ffc8 0%, #00d4aa 100%);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.veille-summary {
+  background: rgba(0, 255, 200, 0.05);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 255, 200, 0.2);
+}
+
+.veille-summary p {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.veille-sources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.source-tag {
+  display: inline-block;
+  background: rgba(0, 255, 200, 0.15);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid rgba(0, 255, 200, 0.3);
+}
+
+>>>>>>> aee094c0b013b0c4a1a642fa85b00d6b6c8f1704
 /* ===== VEILLE TECHNOLOGIQUE ===== */
 .veille-section {
   min-height: 700px;
