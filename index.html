@@ -197,7 +197,37 @@
             <!-- Section Projets -->
             <section id="Projets" class="section-card">
                 <h3>🚀 Mes Projets</h3>
-                <p>Cette section sera bientôt complétée avec mes différents projets réalisés durant ma formation.</p>
+                <p>Voici un projet d’infrastructure que j’ai conçu et mis en œuvre durant ma formation BTS SIO option SISR. L’objectif était de créer un environnement stable, sécurisé et facilement administrable, intégrant un serveur Windows, un routeur pfSense et un poste client.</p>
+
+                <div class="project-card">
+                    <h4>🔧 Mise en place d’une infrastructure réseau</h4>
+                    <ul>
+                        <li><strong>Serveur :</strong> Windows Server 2022
+                            <ul>
+                                <li>Rôle Active Directory (AD DS) pour gestion des comptes et des politiques de groupe (GPO)</li>
+                                <li>Contrôleur de domaine : domaine <code>entreprise.local</code></li>
+                                <li>DHCP et DNS internes pour distribution d’adresses et résolution de noms</li>
+                            </ul>
+                        </li>
+                        <li><strong>Routeur/Sécurité :</strong> pfSense (machine virtuelle)
+                            <ul>
+                                <li>Firewall stateful, NAT, VLANs et règles de filtrage</li>
+                                <li>VPN IPSec/OpenVPN pour accès distant sécurisé</li>
+                                <li>Proxy/filtrage HTTPS et anti-malware (squid + suricata)</li>
+                            </ul>
+                        </li>
+                        <li><strong>Client :</strong> Poste Windows 10/11
+                            <ul>
+                                <li>Intégration au domaine via AD</li>
+                                <li>Application des GPO (sécurité, restrictions, scripts de démarrage)</li>
+                                <li>Tests de connectivité et accès ressources partagées (SMB, drive mapper)</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <h5>✅ Résultats</h5>
+                    <p>L’infrastructure fonctionne avec un segment client isolé, un filtrage web contrôlé, des sauvegardes planifiées sur le serveur et des règles de sécurité pfSense renforcées. Ce projet m’a permis de maîtriser l’administration Windows en environnement réseau réel et la conception d’une architecture sécurisée.</p>
+                </div>
             </section>
 
             <!-- Section Certifications -->
